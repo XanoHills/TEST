@@ -25,22 +25,24 @@ def to_gray(hex_color: str) -> Tuple[int, int, int]:
     return delta_r, delta_g, delta_b
 
 
+print("\nГлавное меню: ")
+print("Введите цвет в формате '#HHHHHH', где H - любой символ шестнадцатеричного кода (от 0 до F).")
+print("0 - выход из программы")
+
 while True:
-    hex_color = input("'0' для выхода\n"
-                      "Введите цвет в формате '#HHHHHH', \n"
-                      "где H - любой символ шестнадцатеричного кода (от 0 до F): ")
+    hex_color = input("Введите значение: ")
     hex_color = hex_color.replace(' ', '')
 
     if hex_color == '0':
         sys.exit("\nВыход из программы")
 
     if input_mistake(hex_color):
-        print("\nНекорректный формат ввода. Пожалуйста, введите цвет в формате '#HHHHHH'.\n")
+        print("\nНекорректный формат ввода. Пожалуйста, введите цвет в формате '#HHHHHH'.")
         continue
 
     if not is_gray(hex_color):
         result = to_gray(hex_color)
-        print(f"Для преобразования цвета {hex_color} в серый добавьте к каждой компоненте: {result}")
+        print(f"\nДля преобразования цвета {hex_color} в серый добавьте к каждой компоненте {result} в RGB кодировке.")
 
     else:
         print(f"Цвет {hex_color} является серым.")
